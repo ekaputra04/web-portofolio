@@ -1,0 +1,1074 @@
+============== STRUKTUR CSS ============== 
+- selector {property : value}
+
+
+============== CARA MENEMPATKAN CSS ============== 
+- embed 
+    <style></style>
+- inline
+    <p style="value"></p>
+- external
+    <link rel="stylesheet" href="namafile.css">
+
+
+============== FONT ============== 
+- font-family     = mengatur jenis font yang akan digunakan
+- font-size       = mengatur ukuran font
+- font-weight     = mengatur ketebalan font
+- font-variant    = mengubah font menjadi small caps
+- font-style      = mengubah font menjadi bercetak miring
+- line-height     = mengatur spasi antar baris
+
+
+============== TEXT ============== 
+- color           = memberi warna pada tulisan
+- text-align      = mengatur format paragraf/ teks
+- text-indent     = memberi indentasi pada paragraf/ teks
+- text-decoration = mengatur dekorasi pada teks
+- text-transform  = mengubah jenis huruf menjadi huruf besar/ kecil/ kapital
+- letter-spacing  = mengatur spasi antar huruf
+- word-spacing    = mengatur spasi antar kata
+
+- color
+nama warna  : red, yellow, dll
+hexadecimal : #......
+rgb         : rgb(..., ..., ..., ...)
+
+- text-align
+left        : rata kiri
+right       : rata kanan
+center      : rata tengah
+justify     : rata kiri kanan
+
+- text-indent : px atau %
+
+- text-decoration
+none        : tidak ada
+underline   : garis bawah
+overline    : garis atas
+line-through : garis mencoret tulisan
+
+- text-transform
+none        : tidak ada
+lowercase   : huruf kecil semua
+uppercase   : huruf besar semua
+capitalize  : huruf kapital pada huruf pertama semua kata
+
+- letter-spacing  : normal atau px
+- word-spacing    : normal atau px
+
+
+BACKGROUND
+- background-color  : mengatur warna pada background
+- background-image  : mengatur gambar yang akan digunakan pada background
+- background-position   : mengatur posisi gambar pada background
+- background-repeat : mengatur jenis perulangan gambar pada background
+
+WEBSITE GAMBAR BERULANG = subtlepattern
+
+
+============== CSS SELECTOR ==============
+digunakan pada css untuk mengenali sebuah elemen html yang akan diberi style
+- elemen html
+- indent
+- class
+- complex selector
+
+"id"
+- sebuah elemen html hanya boleh memiliki 1 id
+- setiap halaman hanya boleh memiliki 1 elemen dengan id tersebut
+- dapat digunakan sebagai penanda halaman untuk link
+- digunkanan juga untuk javascript
+- sebaiknya tidak digunakan untuk css (lebih baik gunakan class)
+
+
+============== PSEUDO CLASS ==============
+kelas semu yang dimiliki oleh sebuah elemen html, yang membuat kita dapat mendefinisikan style pada "keadaan tertentu" dari elemen tersebut
+
+pseudo-class yang berhubungan dengan link:
+:link       = style default pada sebuah link (a yang memiliki href)
+:hover      = style ketika kursor mouse berada di atas sebuah link atau elemen
+:active     = style ketika sebuah link diklik (keadaan aktif)
+:visited    = style ketika sebuah link sudah pernah dikunjungi sebelumnya (menggunakan browser yang sama)
+
+pseudo-class yang berhubungan dengan posisi elemen:
+:first-child    = memilih elemen pertama dari sebuah parent (elemen pembungkusnya)
+:last-child     = memilih elemen terakhir dari sebuah parent (elemen pembungkusnya)
+:nth-child(n)   = memilih elemen ke-n dari sebuah parent (elemen pembungkusnya), n bisa berarti urutan 1, 2, ... atau pola (2n), (3n+2), (4n-1) atau ganjil dan genap (even) & (odd)
+:first-of-type  = memilih elemen pertama dari sebuah jenis/ tipe tag
+:last-of-type  = memilih elemen terakhir dari sebuah jenis/ tipe tag
+
+
+============== INHERITANCE ==============
+sebuah elemen mewarisi beberapa nilai dari properti yang dimiliki oleh elemen parent-nya
+menggunakan value = "inherit"
+properti yang diwariskan:
+- color
+- font
+- letter-spacing
+- line-height
+- list-style
+- text-align
+- text-indent
+- text-transform
+- visibility
+- white-space
+
+
+============== SPECIFICITY ==============
+setiap deklarasi css (selector) memiliki berat yang berbeda. berat tersebut menentukan seberapa spesifik sebuah elemen dapat dipilih oleh selector
+- jika kita menuliskan css yang sama pada suatu selector, maka yang dipakai adalah selector yang paling terakhir
+- id lebih spesifik daripada tag asli
+- urutannya: inline > id > class > elemen 
+     nilai     0      0      0       0
+
+
+============== CSS Layouting ==============
+Display 
+Dimensi
+Overflow
+Box Model 
+Float 
+Position 
+
+============== div dan span ==============
+<div> dan <span> => untuk mengelompokkan tag dan tidak memiliki makna tertentu 
+
+div => default displaynya block 
+span => default displaynya inline 
+
+============== Display ==============
+Setiap tag pada HTML memiliki nilai default untuk property display.
+Tetapi kita juga dapat mengubah perilaku dari tag tersebut dengan mengganti value-nya.
+
+Value dari display :
+    inline :
+        Elemen html yang secara default tidak menambahkan baris baru ketika dibuat.
+        Lebar dan tinggi elemennya sebesar konten yang ada di dalamnya.
+        Kita tidak dapat mengatur tinggi dan lebar dari elemen inline.
+        Margin dan padding hanya mempengaruhi elemen secara horizontal, tidak vertikal.
+
+    inline-block :
+        Tidak ada elemen yang secara default memiliki property display: inline-block.
+        Kita harus ubah secara manual properti tersebut.
+        Perilaku dasarnya sama dengan elemen inline.
+        Perbedaannya, elemen inline-block dapat kita atur tinggi dan lebarnya.
+
+    block :
+        Elemen HTML yang secara default menambahkan baris baru ketika dibuat.
+        Jika tidak diatur lebarnya, maka lebar default dari elemen block akan memenuhi lebar dari browser atau parent-nya.
+        Kita dapat mengatur tinggi dan lebar dari elemen block.
+        Di dalam elemen block, kita dapat menyimpan tag dengan elemen inline, inline-block atau bahkan elemen block lagi.
+
+    none :
+        Digunakan untuk menghilangkan elemen.
+
+============== Dimensi ==============
+width & height, satuannya:
+    px
+    %
+    in, cm, mm, pt, pc 
+
+============== Overflow ==============
+Valuenya: 
+    visible => default
+    auto    => akan menambah scroll jika content lebih besar dari parent
+    hidden  => content di luar parent akan disembunyikan
+    scroll  => walaupun content sedikit atau banyak akan tetap muncul rombol scroll
+
+============== Box Model ==============
+Setiap elemen di halaman berada di dalam sebuah box (kotak).
+Kita bisa mengatur ukuran dan posisi kotak tersebut.
+Kita bisa memberi warna/ gambar sebagai background kotak tersebut.
+CSS box model mendefinisikan 'kotak' yang dihasilkan oleh sebuah elemen, lalu menampilkannya sesuai dengan format visualnya.
+CSS box model terdiri dari :
+    margin  => area transparat di sekitar kotak (di luar border)
+    border  => area transparan di dalam kotak (antara content dan border)
+    padding => batas disekeliling content dan padding 
+    content => content sebenarnya di dalam box, bisa berupa teks atau gambar 
+
+margin
+margin-top
+margin-right 
+margin-buttom 
+margin-left 
+
+padding
+padding-top
+padding-right 
+padding-buttom 
+padding-left 
+
+border
+border-top
+border-right 
+border-buttom 
+border-left 
+
+============== Margin ==============
+cara pakai
+overlapping margin :
+    vertikal : akan menggunakan margin yang lebih besar.
+    horizontal : marginnya akan bertambah dari kedua sisinya.
+
+negatif margin :
+    akan membuat margin namun berlawanan arah.
+
+auto :
+    khusus untuk margin kiri dan kanan.
+    akan membuat element di tengah dari parentnya.
+
+shorthand :
+    cara menyingkat penulisan margin.
+    1 value : atas, kanan, bawah kiri.
+    2 value : atas-bawah, kiri-kanan.
+    3 value : atas, kiri-kanan, bawah.
+    4 value : atas, kanan, bawah, kiri.
+
+============== Padding ==============
+Di dalam box.
+Tidak bisa diberi nilai negatif.
+Tidak memiliki nilai auto.
+Padding menambah ukuran elemen.
+
+============== Border ==============
+border: width style color;
+border-top: width style color;
+border-right: width style color;
+border-bottom: width style color;
+border-left: width style color;
+
+style : 
+    solid
+    dotted
+    dashed
+    double
+
+Border juga mengubah ukuran elemen.
+
+Property agar ukuran elemen tiadk berubah walaupun sudah diberi padding dan border :
+    box-sizing: border-box;
+
+
+============== CSS Reset ==============
+Banyak elemen HTML yang sudah memiliki elemen default sendiri.
+Contohnya body yang sudah memiliki margin dan padding default.
+Tujuannya agar kita punya kendali penuh terhadap CSS yang akan kita buat.
+
+Cara paling efektif dengan :
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+============== Float ==============
+Untuk mengatur sebuah elemen.
+Sebuah elemen dapat dipaksa untuk berada di sebelah kiri atau kanan dari parent/ pembungkusnya dengan menggunakan property ini.
+
+value:
+    none => default
+    left
+    right
+
+Kegunaan float:
+    Text wrapping:
+        membuat teks mengelilingi gambar atau elemen lain.
+    Image gallery:
+        membuat serangkaian gambar menjadi gallery.
+    Multy column layout:
+        membuat halaman memiliki beberapa column.
+
+Cara menghentikan/ membersihkan float:
+    menggunakan properti overflow.
+    menggunakan <div> kosong.
+    menggunakan teknik micro clearfix.
+
+    clear: both;
+
+============== Position ==============
+Menggeserkan elemen tanpa mempengaruhi elemen sekitarnya.
+Value: 
+    static      => default
+    relative
+    absolute
+    fixed
+
+static:
+    Static adalah nilai default dari tiap-tiap elemen ketika tidak diberi properti position.
+    Menggunakan elemen selain static (non-static), akan membuat sebuah elemen menjadi seolah-olah berbeda dimensi dari elemen lainnya.
+    Elemen yang diberi position selain static dapat menggunakan property top, left, bottom, right untuk mengatur posisinya.
+
+relative :
+    Ketika kita menggerakkan elemen dengan posisi relative (menggunakan property top, right, bottom, left), ruang yang ditempati oleh elemen tersebut masih ada.
+    Ketika kita menggerakkan elemen dengan posisi relatif, elemen akan bergerak relatif terhadap posisi semula-nya.
+    Jika kita memberi property top: 0; dan left: 0; maka elemen tidak berubah posisinya.
+    Biasanya jarang kita memindahkan posisi elemen relatif, umumnya digunakan untuk mengubah dimensi elemen saja.
+
+absolute:
+    Ketika kita menggerakkan elemen dengan posisi absolute (menggunakan property top, right, bottom, left), ruang yang ditempati oleh elemen tersebut dianggap tidak ada.
+    Ketika kita menggerakkan elemen dengan posisi absolute, elemen akan bergerak relatif terhadap posisi dari elemen parent-nya, selama parent terdekatnya memiliki posisi yang juga non-static.
+    Jika kita memberi property top: 0; dan left: 0; maka elemen akan berada di ujung kiri atas dari elemen parent yang memiliki posisi non-static.
+
+fixed:
+    menempati posisi dari parent window.
+    posisinya tetap walaupun window discroll.
+
+============== z-index ==============
+Menjadikan suatu element dibawahnya, atau atasanya dengan cara membandingkan value yang dimiliki olehnya.
+Semakin besar angkanya, maka elemen nya akan berada semakin depan.
+
+Kita bisa membuat elemen tanpa mengatur width dan height nya, hanya dengan mengatur top, right, bottom, dan left.
+
+
+============== Flex box ==============
+  model layout 1 dimensi yang dapat mengatur jarak dan penjajaran antar item dalam sebuah container.
+
+  Sebuah modul yang menawarkan cara yang efektif untuk menyusun, mensejajarkan, dan mendistribusikan jarak antar item di dalam sebuah container, meskipun ukurannya dinamis atau bahkan kita tidak tau.
+
+  hanya bisa mengatur 1 dimensi saja, baik itu baris atau kolom.
+
+
+istilah:
+container : pembungkus
+items     : elemen yang dibungkus
+main axis : elemen di set sejajar secara horizontal 
+cross axis: elemen di set sejajar secara vertikal
+main size : lebar container
+cross size: tinggi container
+main start: awal container (horizontal)
+main end  : akhir container (horizontal)
+cross start: awal container(vertical)
+cross end: akhir container(vertical)
+
+
+property pada container:
+display: flex;
+  membuat sebuah elemen parent menjadi flex box, dan membuat elemen elemen di dalanya bisa berperilaku flex juga.
+
+flex-direction: row | row-reverse | column | column-reverse
+  default nya adalah: row
+
+flex-wrap: nowrap | wrap | wrap-reverse
+  secara default, semua items di dalam container akan berada dalam satu baris meskipun ukurannya sudah tidak cukup, wrap memungkinkan untuk memindahkan items ke baris di bawahnya.
+  untuk membuat elemen turun dari barisnya.
+
+justify-content:  flex-start
+                  flex-end
+                  center
+                  space-between
+                  space-around
+                  space-evenly
+  mengatur sejajar items secara horizontal
+
+align-items:  flex-start
+              flex-end
+              center
+              stretch
+              baseline
+  mengatur sejajar items secara vertikal
+
+align-content:  flex-start
+                flex-end
+                center
+                stretch
+                space-between
+                space-around
+
+
+property pada items:
+order: angka;
+  untuk mengatur urutan elemen.
+
+flex-grow / flex: angka;
+  untuk mendapatkan ukuran tertentu tanpa tahu ukurannya.
+
+align-self: auto
+            flex-start
+            flex-end
+            center
+            baseline
+            stretch
+  mengatur perilaku penjajaran sebuah item yang spesifik terhadap cross axis.
+
+
+============== CSS Unit ==============
+
+contoh:
+  width: 80px;
+
+  80 = value
+  px = Unit
+
+CSS Value:
+  integer
+  number
+  percentage
+  dimension
+
+integer:
+  bilangan bulat
+  bisa positif atau negatif
+
+number:
+  bilangan pecahan
+
+percentage:
+  %
+  relatif terhadap elemen yang lain
+
+dimension:
+  number yang memiliki satuan di belakangnya
+  memiliki beberapa kategori:
+    length
+      ada 2 kategori:
+        absolute
+          satuannya:
+            px: 96px = 1 inch 
+            pt: 72pt = 1 inch 
+            pc: 12pt = 1 pc 
+            cm: centimeter
+            mm: 10 mm = 1 cm 
+            in: inch
+
+        relative
+          satuannya:
+            %   : persentase relatif terhadap ukuran elemen parent 
+            em  : relatif terhadap ukuran font yang sedang digunakan 
+            rem : relatif terhadap ukuran font "root" / <html>
+            ch  : relatif terhadap lebar karakter "0" dari font yang sedang digunakan 
+            vh (%) : relatif terhadap tinggi dari viewport
+            vw (%) : relatif terhadap lebar dari viewport
+            vmin (%) : relatif terhadap dimensi terkecil sebuah viewport
+            vmax (%) : relatif terhadap dimensi terbesar sebuah viewport
+
+    angle
+      sudut
+      biasanya untuk atribut rotate
+      satuannya:
+        deg
+        rad 
+        grad 
+        turn 
+
+    time
+      waktu
+      biasanya untuk atribut transition
+      satuannya:
+        s 
+        ms 
+
+    resolution
+      untuk menentukan resolusi
+      satuannya:
+        dpi: dot per inch
+        dpcm: dot per centimeter
+        dppx: dot per pixel
+
+
+============== EM dan REM ==============
+- Em adalah suatu unit ukuran, yaitu ukuran teks pada saat ini.
+- Rem adalah suatu unit ukuran, yaitu ukuran teks pada root (HTML).
+- Dalam CSS3, banyaknya browser mendukung penggunaan unit em dan rem.
+- Untuk menggunakan unit em atau rem, anda harus memiliki tag html di awal file HTML Anda.
+- Unit em akan berubah jika ukuran font pada body/pada element lain berubah. Sedangkan
+unit rem tidak akan berubah apabila ukuran font pada body/element lain berubah.
+- Jadi dalam hal penulisan style sheet, gunakanlah unit em agar hasilnya mudah dipahami oleh orang lain. Gunakanlah unit rem hanya untuk nilai yang merupakan konstan. Misalkan warna background website, warna border, dll.
+
+EM: 
+  jika kita tidak memberikan nilai font-size pada parent, maka nilai defaultnya adalah 16 px.
+  nilai em bisa menumpuk, jika di parentnya menggunakan em juga maka akan dikalkulasi, sampai menemukan font yang menjadi acuannya.
+  usahakan jangan gunakan untuk font, gunakan untuk length.
+  jika menggunakan em untuk length, maka length relatif terhadap font-size pada elemennya.
+
+
+REM: 
+  beracuan pada parent html atau :root 
+  gunakan untuk font. 
+
+
+============== Viewport Unit ==============
+vh (%) : relatif terhadap tinggi dari viewport
+vw (%) : relatif terhadap lebar dari viewport
+vmin (%) : relatif terhadap dimensi terkecil sebuah viewport
+vmax (%) : relatif terhadap dimensi terbesar sebuah viewport
+
+
+============== Function calc() ==============
+Fungsi pada css yang memungkinkan kita untuk melakukan operasi matematika / kalkulasi pada nilai dari sebuah properti.
+nilai yang bisa dikalkulasi:
+  langth
+  angle
+  time 
+  percentage
+  number
+
+property: calc(expression)
+
+expression:
+  penjumlahan:
+    bisa dengan value berbeda satuan 
+  pengurangan:
+    bisa dengan value berbeda satuan 
+  perkalian:
+    value bersatuan dengan value tanpa satuan 
+  pembagian:
+    value bersatuan dengan value tanpa satuan 
+    tidak bisa dibagi dengan 0
+
+antara value 1 dengan operator dan value 2 harus ada spasi
+benar : 100px - 30 vh
+salah : 100px-30vh
+
+calc() telah menerapkan order of operation:
+  urutan perhitungan:
+    kurung > kali > bagi > tambah > kurang
+
+
+============== CSS 3 ==============
+Kenapa menggunakan CSS 3?
+Membuat website menjadi lebih fleksibel.
+Membuat mock-up dengan cepat tanpa bantuan bahasa scripting.
+Mengurangi penggunaan gambar = kecepatan load halaman.
+Penggunaan selector untuk menghindari penggunaan markup yang boros.
+
+border-radius:
+    border-radius: semua;
+    border-radius: atas-kiri atas-kanan bawah-kanan bawah-kiri;
+
+    border-top-right-radius:
+    border-top-left-radius:
+    border-bottom-right-radius:
+    border-bottom-left-radius:
+
+opacity: 
+    valuenya antara 0 sampai 1
+    0 = transparan
+    1 = solid
+    nilai 0 di depan titik boleh tidak ditulis
+    .9 = 0.9
+    .24 = 0.24
+
+    jika parent memiliki opacity, maka child akan terpengaruh juga.
+
+    jika kita ingin parent saja yang memiliki opacity, namun child nya tidak, kita tidak menggunakan opacity.
+    kita menggunakan rgba.
+
+rgba():
+    red green blue alpha
+    alpha ibarat opacity, nilainya antara 0 sampai 1
+    0 = transparan
+    1 = solid
+
+hsla():
+    hue saturation lightness alpha
+    hue: warna
+    saturation: saturasi/ terang gelap
+    lightness: kecerahan
+    alpha: opacity
+
+box-shadow:
+    untuk memberikan bayangan pada elemen
+    parameter utama:
+    <x-offset> <y-offset> <blur> <color>
+
+    parameter tambahan:
+    <inset> <x-offset> <y-offset> <blur> <spread> <color>
+
+    inset: untuk membuat blur di dalam elemen
+    x-offset: jarak bayangan horizontal
+    y-offset: jarak bayangan vertikal
+    blur: jarak pudar
+    spread: ukuran bayangan
+    color: warna 
+
+    multiple box-shadow:
+        kita bisa memberikan box-shadow lebih dari 1 pada sebuah elemen.
+        box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.5),
+                    -10px -10px 5px 5px rgba(255, 0, 0, 0.5);
+
+text-shadow:
+    untuk memberikan bayangan pada text
+    parameter:
+        <x-offset> <y-offset> <blur> <color>
+    multiple text-shadow:
+        kita bisa memberikan text-shadow lebih dari 1 pada sebuah elemen.
+
+linear-gradient:
+    teknik untuk memberikan gradasi warna secara garis lurus.
+    bukan merupakan properti dari css 3, tetapi value untuk background.
+    sintaks:
+        defaultnya dari atas ke bawah.
+
+        background: linear-gradient(<warna awal>, <warna akhir>)
+        multiple color:
+        background: linear-gradient(<warna-1>, <warna-2>, ..., <warna-n>)
+
+        jika ingin sudut tertentu.
+        background: linear-gradient(<sudut> | <arah>, <warna-1>, <warna-2>, ..., <warna-n>)
+
+        <sudut> bisa diganti dengan <arah>
+        <sudut> bisa menggunakan deg, rad, dll. bisa bernilai negatif.
+        <arah>:
+            to bottom
+            to top
+            to left
+            to right
+            to left top
+            to left bottom
+            to bottom top
+            to bottom bottom
+    color-stop:
+        untuk menentukan persentase warna, diisikan setelah warna, bernilai %, px, dll.
+
+radial-gradient:
+    teknik untuk memberikan gradasi warna secara melingkar.
+    bukan merupakan properti dari css 3, tetapi value untuk background.
+    sintaks:
+        defaultnya dari dalam ke luar.
+
+        sintaks simple:
+        background: radial-gradient(<warna awal>, <warna akhir>)
+        multiple color:
+        background: linear-gradient(<warna-1>, <warna-2>, ..., <warna-n>)
+
+        <warna awal> akan berada di pusat
+
+        sintaks lengkap:
+        background: radial-gradient(
+                    <tipe> <jangkauan> at <posisi-y> <posisi-x>,
+                    <warna-1>,
+                    <warna-2>,
+                    ...,
+                    <warna-n>)
+        
+        <tipe>: ellipse (default) atau circle
+        <jangkauan>: jarak dari pusat gradient ke sisi terluar-nya
+            jarak dari pusat gradient:
+            closest-corner: ke sudut terdekat elemen
+            closest-side: ke sisi terdekat elemen
+            farthest-corner: ke sudut terjauh elemen
+            farthest-side: ke sisi terjauh elemen
+        <posisi-y>: dalam px
+            top
+            center
+            bottom
+        <posisi-x>: dalam px
+            left
+            center
+            right
+    color-stop:
+        untuk menentukan persentase warna, diisikan setelah warna, bernilai %, px, dll.
+
+font-face
+    font harus ada di sistem operasi client/ user.
+    kita bisa mengimpor font dari website:
+        https://fonts.google.com
+    cara lainnya, menggunakan font-face.
+    @font-face {
+        font-family: 'namaFontBaru';
+        src : url('nama_file.eot'); // lokasi file font yang digunakan
+        // format lain:
+        src : url('nama_file.eot?#iefix') format('embedded-opentype'),
+        url('nama_file.woff2') format('woff2'),
+        url('nama_file.woff') format('woff'),
+        url('nama_file.ttf') format('truetype'),
+        url('nama_file.svg#svgFontName') format('svg'),
+    }
+    layanan font:
+        fonts.google.com
+        fontsquirell.com
+        fontspring.com
+        webtype.com
+        typotheque.com
+
+web font generator:
+    untuk mengubah font berekstensi ttf menjadi woff.
+    ada pada web fontsquirell.com
+
+vendor prefix:
+    sintaks khusus yang harus ditambahkan untuk beberapa property di CSS 3.
+    kenapa perlu menambahkan prefix?
+        karena tidak semua browser support css 3.
+        
+    contoh:
+        -webkit-<properti-css3>
+            Chrome, Safari, Opera versi terbaru
+        -moz-<properti-css3>
+            Firefox
+        -ms-<properti-css3>
+            Internet Explorer
+        -o-<properti-css3>
+            Opera versi Terdahulu
+
+    properti mana yang perlu prefix?
+        kunjungi website shoudiprefix.com
+                         caniuse.com
+                         pleeease.io/play
+        plugin emmet
+
+filter:
+    properti css 3 yang digunakan untuk memberikan efek visual pada gambar, background, atau border
+
+    sintaks:
+        filter: <tipe filter>
+
+    <tipe filter>:
+        blur(angka | %)
+        brightness(angka | %)
+        contrast(angka | %)
+        saturate(angka | %)
+        grayscale(angka | %)
+        sepia(angka | %)
+        hue-rotate(deg)
+        invert(angka | %)
+        opacity(angka | %)
+        drop-shadow(sama seperti box shadow)
+
+    bisa menggunakan lebih dari 1 filter, tanpa menggunakan koma, cukup spasi.
+
+transform:
+    memungkinkan kita dapat memanipulasi format visual dari elemen HTML.
+    jenis:
+        2 dimensi.
+        3 dimensi.
+    sintaks:
+        transform: <fungsi>;
+
+        <fungsi transformasi>:
+            scale(angka), scaleX(angka), scaleY(angka):
+                memperbesar/memperkecil
+            rotate(deg), rotateX(deg), rotateY(deg):
+                memutar
+                deg + = searah jarum jam 
+                deg - = berlawanan jarum jam 
+                rotate = sumbu di pusat elemen
+                rotateX = sumbu di x
+                rotateY = sumbu di Y
+            skew(deg), skewX(deg), skewY(deg):
+                membuat condong/ miring
+            translate(px), translateX(px), translateY(px):
+                mengubah posisi
+    kita bisa memberikan lebih dari sat transform pada satu elemen.
+
+transition:
+    hanya ada dua keadaan, awal dan akhir.
+    memungkinkan kita dapat mengubah nilai dari property HTML secara halus.
+    sintaks:
+        transition: [property] <durasi> [fungsi] [delay]
+
+        value yang wajib diisi yaitu <durasi>, sisanya opsional
+
+        <durasi> = satuannya m atau ms
+        [property] = defaultnya all, bisa memilih elemen apa saja yang mau isi transisi
+        [fungsi] = 
+            ease (default)
+            ease-in
+            ease-out 
+            ease-in-out 
+            linear
+            cubic-bezier(w, x, y, z)
+        [delay] = satuannya m atau ms
+
+        animatable properties:
+            background-color
+            background-position
+            background-size
+            border
+            color 
+            filter
+            font-size
+            line-height
+            top left bottom right
+            margin padding
+            width height
+            opacity
+            transform
+            word-spacing
+            letter-spacing
+            ...
+        
+        non-animatable properties:
+            font-family
+            display
+            position
+            ...
+
+animation:
+    ada lebih dari dua keadaan, keadaan di antara awal dan akhir disebut keyframe.
+    sintaks keyframe:
+        @keyframe [nama-animasi] {
+          from {
+            [property-css]
+          }
+
+          to {
+            [property-css]
+          }
+        }
+    sintaks animation:
+        animation: <nama-animasi> [durasi] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]
+
+        <nama-animasi> = sama seperti transition
+        [durasi] = sama seperti transition
+        [timing-function] = sama seperti transition
+        [delay] = sama seperti transition
+        [iteration-count] = angka | infinite
+        [direction] = 
+            normal (default) 
+            reverse = kebalikan
+            alternate = awal-akhir-awal 
+            alternate-reverse = akhir-awal-akhir
+        [fill-mode] =
+            untuk menentukan akhir dari transisi
+            none
+            forwards
+            backwards
+            both 
+        [play-state] =
+            running
+            paused
+
+
+============== CSS Grid ==============
+modul css baru untuk mendefinisikan sistem layout berbentuk grid dalam 2 dimensi (baris & kolom)
+
+Kenapa menggunakan Grid?
+1. Mudah dipahami oleh developer yang tidak familiar dengan flexbox ataupun bootstrap
+2. Menyederhanakan pengembangan web karena memiliki banyak fungsi built in
+3. Dapat digunakan pada semua browser modern
+4. Responsive design
+5. Membuat desain website yang responsive tanpa harus repot menerapkan media query
+6. Kompleksitas penggunaanya relatif rendah jika dibandingkan dengan Flexbox
+7. Bisa melakukan komposisi/nesting
+8. Fokus pada tampilan bukan bagaimana cara kerja aplikasinya
+9. Sangat cocok untuk membangun halaman landing page
+10. Lebih mudah dipelajari daripada Bootstrap
+Grid adalah salah satu modul CSS yang paling populer saat ini. Modul ini merupakan alternatif l
+
+.container {
+    grid-template-areas:
+          "header header"
+          "aside main"
+          "nav main"
+          "footer footer";
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr 1fr 1.3fr;
+}
+
+pada bagian elemen:
+nav {
+    gria-area: nav;
+}
+
+Terminologi / Istilah:
+    grid container:
+        elemen pembungkus grid, didefinisikan dengan menuliskan:
+        display: grid;
+    grid item:
+        elemen-elemen yang berada 1 level di dalam grid container.
+    grid line:
+        garis horizontal (kolom) atau vertikal (baris) yang memisahkan grid menjadi beberapa bagian dan ditandai dengan angka.
+    grid cell:
+        perpotongan / pertemuan antara baris dan kolom di dalam grid.
+    grid area:
+        kumpulan lebih dari satu cell yang membentuk kotak.
+    grid track:
+        ukuran / jarak antara 2 grid line, bisa horizontal (kolom) atau vertikal (baris)
+    grid gap:
+        jarak antar grid track / cell
+
+Property:
+Untuk Container:
+    grid-template-columns: ;
+    grid-template-rows: ;
+    grid-auto-rows: ;
+    grid-auto-flow: ;
+    grid-template-areas: ;
+    grid-template: ;
+    grid-column-gap: ;
+    grid-row-gap: ;
+    grid-gap: ;
+    grid: ;
+    justify-items: ;
+    align-items: ;
+    place-items: ;
+    justify-content: ;
+    align-content: ;
+    place-content: ;
+
+Untuk items:
+    grid-column-start: ;
+    grid-column-end: ;
+    grid-row-start: ;
+    grid-row-end: ;
+    grid-column: ;
+    grid-row: ;
+    grid-area: ;
+    justify-self: ;
+    align-self: ;
+    place-self: ;
+
+Explicit grid:
+    Secara jelas menuliskan ukuran dari grid nya.
+
+Implicit grid:
+    Grid menentukan secara otomatis ukurannya.
+
+Beberapa property grid utama container:
+    - grid-template-columns: ;
+    - grid-template-rows: ;
+        mendefinisikan kolom / baris dengan penulisan nilai dipisahkan oleh spasi. nilai merepresentasikan ukuran grid track dan spasi merepresentasikan grid line.
+
+        .container {
+            display: grid;
+            grid-template-columns: <track-size> ... | <line-name> <track-size> ... ;
+            grid-template-rows: <track-size> ... | <line-name> <track-size> ... ;
+        }
+
+        <track-size> : bisa berupa px, %, auto, atau fr (fraction)
+        <list-name> : nama yang bisa diberikan pada track
+
+    - grid-auto-columns: ;
+    - grid-auto-rows: ;
+        mengatur ukuran grid track yang tidak dituliskan pada grid-template (implicit track)
+
+    - grid-auto-flow: row (default) | column | row dense | column dense ;
+        mengatur penempatan item / cell pada grid track, termasuk yang ditulis secara implicit.
+
+    - grid-template-area: ;
+        mendefinisikan grid template menggunakan nama dari area yang ditulis pada property grid-area pada item.
+        
+        .container {
+            grid-template-area:
+                "<nama-area> | none | '.'"
+                "<nama-area> <nama-area>"
+                ...
+        }
+    
+    - grid-area: <nama area>;
+        untuk mendefinisikan elemen tersebut termasuk area yang mana.
+        .item {
+            grid-area: <nama area>;
+        }
+    
+    -grid-template: <grid-template-rows> | <grid-template-areas> / <grid-template-columns>;
+        shorthand untuk mendefinisikan grid-template-rows, grid-template-areas, dan grid-template-columns dalam satu deklarasi;
+
+    - grid-gap:
+        mendefinisikan ukuran grid line / jarak antara baris atau kolom.
+        sintaks baru:
+            gap: <line-size>;
+            column-gap: <line-size>;
+            row-gap: <line-size>;
+
+    - justify-items: start | end | center | stretch (default)
+        untuk mensejajarkan grid items pada sumbu horizontal
+    
+    - align-items: start | end | center | stretch (default)
+        untuk mensejajarkan grid items pada sumbu vertikal 
+
+    - place-items: <align-items> <justify-items>;
+        shorthand untuk menulis align-items dan justify-items dalam satu deklarasi.
+    
+    - justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
+        mengatur posisi seluruh grid container pada sumbu horizontal.
+        ini bisa dilakukan ketika ukuran total grid lebih kecil dari ukuran containernya, biasanya ketika grid items nya menggunakan ukuran yang fixed (misal px).
+
+    - align-content: start | end | center | stretch | space-around | space-between | space-evenly;
+        sama seperti justify-content, tapi untuk sumbu vertikal.
+
+    - place-content: <justify-content> <align-content>
+        shorthand untuk menulis align-content dan justify-content dalam satu deklarasi.
+
+Beberapa property grid utama items:
+    - grid-column-start: ;
+    - grid-column-end: ;
+    - grid-row-start: ;
+    - grid-row-end: ;
+        menentukan tempat dari grid item dengan mengacu pada nomor atau nama grid line yang spesifik.
+        value yang bisa diisi:
+            <nomor> | <nama>:
+                mengacu pada nomor atau nama yang kita beri pada grid line.
+            span <nomor>: 
+                item akan memanjang / melebar sampai sejumlah nomor.
+            span <nama>
+                item akan memanjang / melebar sampai ke nama grid line tertentu.
+
+    - grid-column: ;
+    - grid-row: ;
+        shorthand untuk start dan end pada grid-column & grid-row.
+        value yang bisa diisi:
+            <start-line> / <end-line> | <start-line> / span <value>
+    
+    - grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>
+        menentukan nama area pada item sesuai dengan template yang sudah dibuat sebelumnya melalui properti grid-template-areas.
+        bisa digunakan sebagai shorthand untuk grid-row-start, grid-column-start, grid-row-end, dan grid-column-end.
+
+    - justify-self: start | end | center | stretch;
+        mengatur posisi item pada sebuah cell terhadap sumbu horizontal.
+
+    - align-self: start | end | center | stretch;
+        mengatur posisi item pada sebuah cell terhadap sumbu vertikal.
+
+    - place-self: <align-self> <justify-self>;
+        shorthand posisi item pada sebuah cell terhadap sumbu vertikal dan sumbu horizontal pada satu deklarasi.
+        
+
+Special Function dan Keyword:
+    repeat(<perulangan>, <ukuran>)
+        menentukan ukuran grid track secara berulang.
+
+    min-content & max-content
+        menentukan seberapa besar ukuran grid track berdasarkan content pada sebuah item.
+
+    minmax(<ukuran minimal>, <ukuran maksimal>)
+        menentukan ukuran minimal dan maksimal dari grid track.
+
+    auto-fill & auto-fit 
+        menentukan jumlah item untuk berada pada grid track
+        biasanya kombinasi dengan fungsi repeat(<auto-fit>, <ukuran>)
