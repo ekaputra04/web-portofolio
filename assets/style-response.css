@@ -1,0 +1,64 @@
+/* Reset CSS */
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  animation: 0.5s;
+  box-sizing: border-box;
+  background-image: url(../img/background-about.jpeg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.content {
+  margin: 50px auto;
+  justify-content: center;
+  text-align: center;
+  z-index: 9;
+  width: 80%;
+  background-color: rgba(333, 333, 333, 0.8);
+}
+
+h2 {
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px 30px 30px;
+}
+
+.back {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 200px;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin: 0 auto 50px;
+  background-color: #eac696;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.back:hover {
+  background-color: #333;
+  color: aliceblue;
+}

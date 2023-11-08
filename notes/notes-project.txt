@@ -1,0 +1,6 @@
+menambahkan background color navbar pada kondisi scroll
+tambahkan shadow
+tambahkan jualan merchandise
+responsif
+tambahkan dark mode
+php response update masi error
