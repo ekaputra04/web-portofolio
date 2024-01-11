@@ -485,6 +485,10 @@ button:hover {
   padding-top: 20px;
 }
 
+li a {
+  text-decoration: none;
+}
+
 .scroll-to-top {
   display: none;
   position: fixed;
